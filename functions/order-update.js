@@ -24,7 +24,7 @@ const {OrderUpdate} = require('actions-on-google');
 
 // Import the service account key used to authorize the request. Replace the
 // string path with a path to your service account key.
-const key = require('./path/to/key.json');
+const key = require('./key.json');
 
 // Create a new JWT client for the Actions API using credentials from the
 // service account key.
@@ -48,14 +48,14 @@ jwtClient.authorize((err, tokens) => {
   const currentTime = new Date().toISOString();
 
   // Declare the ID of the order to update.
-  const actionOrderId = '<UNIQUE_ORDER_ID>';
+  const actionOrderId = '1235';
 
   // Declare the particular updated state of the order.
   const orderUpdate = new OrderUpdate({
     actionOrderId: actionOrderId,
     orderState: {
-      label: 'Order has been delivered!',
-      state: 'FULFILLED',
+      label: 'Your order has been sent!',
+      state: 'COMPLETED',
     },
     updateTime: currentTime,
   });
